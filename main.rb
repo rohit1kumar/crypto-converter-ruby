@@ -15,14 +15,14 @@ def submenu(manager, currency)
         puts "#{amount} #{symbol} = #{result} #{currency}"
         puts "-".center(50, "-")
     else
-        puts "#{symbol} is not available".center(50, "*")
+        puts "#{symbol} is not available".center(50, "*") + "\n"
     end
 end
 
 def main
     loop do
         manager = Manager.new
-        puts " Welcome to Crypto Converter! ".center(50, "#")
+        puts "\n"+" Welcome to Crypto Converter! ".center(50, "#")
         puts "a) Convert to USD"
         puts "b) Convert to EUR"
         puts "c) Convert to INR"

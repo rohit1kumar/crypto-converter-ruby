@@ -10,10 +10,15 @@ class Manager
     end
 
     def initialize_repo
-        response = web_scrape
-        json = JSON.parse(response)
-        json.each do |symbol, value|
-            @@repo[symbol] = Coin.new(symbol, value["USD"], value["EUR"], value["INR"])
+        begin
+            response = web_scrape
+            json = JSON.parse(response)
+            json.each do |symbol, value|
+                @@repo[symbol] = Coin.new(symbol, value["USD"], value["EUR"], value["INR"])
+            end
+        rescue => exception
+            puts "Error: #{exception}"
+            exit 1 # exit with error
         end
     end
 
